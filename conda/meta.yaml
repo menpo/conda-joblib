@@ -1,6 +1,6 @@
 package:
   name: joblib
-  version: !!str 0.8.3-r1
+  version: !!str 0.8.3
 
 source:
   fn: joblib-0.8.3-r1.tar.gz
