@@ -1,4 +1,10 @@
-sudo: true
+sudo: false
+
+os:
+- linux
+
+git:
+  depth: 200
 
 env:
   global:
@@ -6,14 +12,14 @@ env:
   matrix:
     - PYTHON_VERSION: 2.7
     - PYTHON_VERSION: 3.4
+    - PYTHON_VERSION: 3.5
 
 install:
 - wget https://raw.githubusercontent.com/menpo/condaci/v0.4.x/condaci.py -O condaci.py
-- python condaci.py setup $PYTHON_VERSION --channel $BINSTAR_USER
-- export PATH=$HOME/miniconda/bin:$PATH
+- python condaci.py setup
 
 script:
-- python condaci.py auto ./conda --binstarchannel main --binstaruser $BINSTAR_USER --binstarkey $BINSTAR_KEY
+- ~/miniconda/bin/python condaci.py build ./conda
 
 notifications:
   slack:
